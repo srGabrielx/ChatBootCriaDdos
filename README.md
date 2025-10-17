@@ -61,11 +61,10 @@ pip install langchain-community langchain-chroma langchain-openai langchain-hugg
 Crie um arquivo chamado **`.env`** na raiz do projeto para armazenar sua chave da AIMLAPI:
 
 ```
-# .env
-AIMLAPI_KEY="SUA_CHAVE_SECRETA_AIMLAPI"
+AIMLAPI_KEY = "SUA_CHAVE_SECRETA_AIMLAPI"
 ```
 
-**⚠️ Atenção:** Nunca suba o arquivo `.env` para o GitHub. Certifique-se de que ele está no seu `.gitignore`.
+**⚠️ Atenção:** ATENÇÃO Não suba o arquivo `.env` para o GitHub. Certifique-se de que ele está no seu `.gitignore`.
 
 #### 4\. Adicionar Documentos
 
@@ -117,3 +116,4 @@ Sinta-se à vontade para sugerir melhorias, reportar bugs ou contribuir com o c�
 ### 📄 Licença
 
 Este projeto está sob a licença **MIT**.
+
