@@ -8,6 +8,8 @@ from dotenv import load_dotenv, find_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma.vectorstores import Chroma
+from langchain.chains import RetrievalQA
+
 
 PASTA_BASE = 'base'
 
@@ -62,8 +64,6 @@ def vetorizar_chunks(chunks):
         print(f"ERRO durante a vetorização ou criação do DB local: {e}")
 
 print(f"DEBUG: Chave API carregada? {'Sim' if AIMLAPI_KEY else 'Não'}")
-# ADICIONE esta importação no topo do arquivo, se ainda não estiver lá:
-from langchain.chains import RetrievalQA
 
 def iniciar_chat():
     print("\nIniciando o sistema de chat...")
