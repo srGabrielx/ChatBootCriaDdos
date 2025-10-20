@@ -38,6 +38,7 @@ def criar_banco_de_dados():
    chunks = dividir_chunks(documentos)
    vetorizar_chunks(chunks)
 
+#carregar os documentos da pasta
 def carregar_documentos():
  """Carrega os arquivos PDF da pasta especificada."""
  print(f"Carregando documentos da pasta: '{PASTA_BASE}'")
@@ -55,7 +56,7 @@ def dividir_chunks(documentos):
  print("Dividindo documentos em chunks...")
  separador_documentos = RecursiveCharacterTextSplitter( 
     chunk_size = 1000,
-    chunk_overlap = 200, # Reduzi o overlap para um valor mais comum
+    chunk_overlap = 200, 
     length_function = len,
     add_start_index = True
  )
@@ -96,13 +97,13 @@ def iniciar_chat():
     """Inicia o chat interativo com o modelo de linguagem."""
     print("\nIniciando o sistema de chat...")
 
-    # 1. Verifica se o banco de dados vetorial existe
+    # Verifica se o banco de dados vetorial existe
     if not os.path.exists(PASTA_DB):
         print(f"ERRO: Banco de dados '{PASTA_DB}' não encontrado.")
         print("Por favor, execute o script com o argumento '--create-db' primeiro.")
         return
 
-    # 2. Carrega o banco de dados vetorial e a função de embedding
+    # Carrega o banco de dados vetorial e a função de embedding
     print("Carregando base de vetores (usando Sentence Transformers)...")
     try:
         embedding_hf = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -112,14 +113,14 @@ def iniciar_chat():
         print(f"ERRO ao carregar banco de dados ou embeddings: {e}")
         return
 
-    # 3. Configura a conexão com a API (AIMLAPI)
+    # Configura a conexão com a API (AIMLAPI)
     try:
         print("Configurando a conexão com a AIMLAPI...")
         aimlapi_base_url = "https://api.aimlapi.com"
         aimlapi_model = "mistralai/Mistral-7B-Instruct-v0.2"
 
         
-        # As versões mais recentes do LangChain usam 'api_key', 'base_url' e 'model'
+       # As versões mais recentes do LangChain usam 'api_key', 'base_url' e 'model'
         aimlapi_model = "mistralai/Mistral-7B-Instruct-v0.2" # Verifique o nome do modelo
 
         llm = ChatOpenAI(
