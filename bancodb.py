@@ -118,11 +118,7 @@ def iniciar_chat():
         print("Configurando a conexão com a AIMLAPI...")
         aimlapi_base_url = "https://api.aimlapi.com"
         aimlapi_model = "mistralai/Mistral-7B-Instruct-v0.2"
-
-        
-       # As versões mais recentes do LangChain usam 'api_key', 'base_url' e 'model'
-        aimlapi_model = "mistralai/Mistral-7B-Instruct-v0.2" # Verifique o nome do modelo
-
+       
         llm = ChatOpenAI(
             api_key=AIMLAPI_KEY,
             base_url=aimlapi_base_url,
